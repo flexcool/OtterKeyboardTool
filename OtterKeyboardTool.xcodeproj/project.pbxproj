@@ -1,0 +1,372 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+		/* Begin PBXBuildFile section */
+		5afa64953b2a7a1e6ddb2700 /* OtterKeyboardTool/OtterKeyboardToolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = d11cf392063c5da118dfa2cc; };
+		d5f995ff8f4918827ff61c9d /* OtterKeyboardTool/ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ad7bf3ecbeeb71b974444f1e; };
+		06ed7bc1282455d30006b1fc /* OtterKeyboardTool/Screens/ClipboardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6e74aa18c770f47d401b5c5a; };
+		d3f3e30eb2fcdb381999ddb7 /* OtterKeyboardTool/Screens/PhraseSetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4e2f68424f9575c5978d3dd5; };
+		da333f98d369c28d387df43d /* OtterKeyboardTool/Screens/ScriptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = b9a463abb5fe95cc74b0515b; };
+		bab7881526efbe5022608601 /* OtterKeyboardTool/Screens/SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = bcce541f6957722d690a14e7; };
+		219d27663d55a1023ad09f25 /* OtterKeyboardTool/Screens/InfoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03e474c5ab95233f008010b1; };
+		ce6e42ee5bb6c047b9a894de /* KeyboardExtension/KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35120f230fe48fd6777285db; };
+		899580d40a0a92bff2a6f4ff /* KeyboardExtension/KeyboardRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ec7307320f90bfe25b43e2; };
+		40f0615f1868c9058029fa30 /* KeyboardExtension/Panels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5e6a39c8333fe28acf579556; };
+		98b49d29bc5d7b43747061b7 /* KeyboardExtension/ExplosionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4caf38d3ea38c710b22f500a; };
+		3eca3fb7671773fb0754d4e9 /* Shared/Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = b88b52dfb56f532cee09a8f1; };
+		4097213d85c795f818333e94 /* Shared/Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = b88b52dfb56f532cee09a8f1; };
+		fd56eadb7ced1e147ab9dfdd /* Shared/Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = a57f963d77b67d4e648a48a6; };
+		93f7a0c52b990feebd4ffddb /* Shared/Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = a57f963d77b67d4e648a48a6; };
+		77993bd7a9f55d772f235a0a /* Shared/Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = d06288e3c54702e695caa413; };
+		17c29b5c7fed3585e800e516 /* Shared/Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = d06288e3c54702e695caa413; };
+		59d26a4fadb10a90d82efd59 /* Shared/ScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9e36673888181bce1752775c; };
+		bc67a634393e5cf7ee514eeb /* Shared/ScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9e36673888181bce1752775c; };
+		b86ab7aa733e6ccf12c62a91 /* Shared/OtterKeyboardTool.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 331e61be51e5890780c795d1; };
+		bcca98e58942bf4320065c58 /* Shared/OtterKeyboardTool.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 331e61be51e5890780c795d1; };
+		346ad8411d1684e968d6f990 /* OtterKeyboardTool/Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = f74d17890322b8b6deae49dc; };
+		39615dded6b6271c52e57a15 /* OtterKeyboardTool/en.lproj/Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61d83a2ca123a5480ba41ca3; };
+		f09f5b041bd04a60bd13da63 /* OtterKeyboardTool/zh-Hans.lproj/Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = e978e57550191de9ff43e6cb; };
+		f5487ad2c89ef02ebcfa8ec6 /* KeyboardExtension/en.lproj/Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6a1754d4ac2b88fc04a61e46; };
+		0d809518cb0ea7bac3c22dc3 /* KeyboardExtension/zh-Hans.lproj/Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ac968b118abe8ee8c7bdf29b; };
+		561524f66d616b9080886cb8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5a4cce757a3a4dcf675a2aea; };
+		9100838f4a77d16b149a4e6c /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5a4cce757a3a4dcf675a2aea; };
+		f58738cee3be40116900fb58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = e203f0e45c33e7def14c6d77; };
+		5fb6c0bd6c544688b5c0513a /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = e203f0e45c33e7def14c6d77; };
+		99448835db51cc31b2f1d82c /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = da749f6627fd75143df027ca; };
+		545e6fa1477570e39dfcc18d /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = da749f6627fd75143df027ca; };
+		95e8d85c10542775f3bfddfc /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = fac6f51012bd731f24a7d451; };
+		3800455d11c26fe19e182db7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = fac6f51012bd731f24a7d451; };
+		a8bd0333d4435ecc212aed2d /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18369d3f07d694a564be7e92; };
+		4fff8bc2615b7eef2b998a03 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18369d3f07d694a564be7e92; };
+		12d2996c95bba1a322e9a087 /* KeyboardExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = bca99b6e0ed1dc8d97d3259c; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		/* End PBXBuildFile section */
+		/* Begin PBXContainerItemProxy section */
+		eb2960c745af85e5de066070 /* PBXContainerItemProxy */ = {isa = PBXContainerItemProxy; containerPortal = 16eeaf57bafc2a41cab7c99a; proxyType = 1; remoteGlobalIDString = c848384908aae4985486e164; remoteInfo = "KeyboardExtension"; };
+		/* End PBXContainerItemProxy section */
+		/* Begin PBXFileReference section */
+		d11cf392063c5da118dfa2cc /* OtterKeyboardToolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtterKeyboardToolApp.swift"; sourceTree = "<group>"; };
+		ad7bf3ecbeeb71b974444f1e /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView.swift"; sourceTree = "<group>"; };
+		6e74aa18c770f47d401b5c5a /* Screens/ClipboardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Screens/ClipboardListView.swift"; sourceTree = "<group>"; };
+		4e2f68424f9575c5978d3dd5 /* Screens/PhraseSetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Screens/PhraseSetsView.swift"; sourceTree = "<group>"; };
+		b9a463abb5fe95cc74b0515b /* Screens/ScriptsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Screens/ScriptsView.swift"; sourceTree = "<group>"; };
+		bcce541f6957722d690a14e7 /* Screens/SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Screens/SettingsView.swift"; sourceTree = "<group>"; };
+		03e474c5ab95233f008010b1 /* Screens/InfoViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Screens/InfoViews.swift"; sourceTree = "<group>"; };
+		f74d17890322b8b6deae49dc /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets.xcassets"; sourceTree = "<group>"; };
+		61d83a2ca123a5480ba41ca3 /* en.lproj/Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "en.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		e978e57550191de9ff43e6cb /* zh-Hans.lproj/Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		402878c8de3f83b8aaed4ba2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info.plist"; sourceTree = "<group>"; };
+		657f48fe420f61d8dc239ac6 /* OtterKeyboardTool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "OtterKeyboardTool.entitlements"; sourceTree = "<group>"; };
+		35120f230fe48fd6777285db /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardViewController.swift"; sourceTree = "<group>"; };
+		30ec7307320f90bfe25b43e2 /* KeyboardRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardRootView.swift"; sourceTree = "<group>"; };
+		5e6a39c8333fe28acf579556 /* Panels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Panels.swift"; sourceTree = "<group>"; };
+		4caf38d3ea38c710b22f500a /* ExplosionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExplosionView.swift"; sourceTree = "<group>"; };
+		6a1754d4ac2b88fc04a61e46 /* en.lproj/Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "en.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		ac968b118abe8ee8c7bdf29b /* zh-Hans.lproj/Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		53adb0d6af644d6c59fe7e86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info.plist"; sourceTree = "<group>"; };
+		40b821591ac05ea629021ffb /* KeyboardExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KeyboardExtension.entitlements"; sourceTree = "<group>"; };
+		b88b52dfb56f532cee09a8f1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persistence.swift"; sourceTree = "<group>"; };
+		a57f963d77b67d4e648a48a6 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models.swift"; sourceTree = "<group>"; };
+		d06288e3c54702e695caa413 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localized.swift"; sourceTree = "<group>"; };
+		9e36673888181bce1752775c /* ScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScriptRunner.swift"; sourceTree = "<group>"; };
+		331e61be51e5890780c795d1 /* OtterKeyboardTool.xcdatamodeld */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodeld; path = "OtterKeyboardTool.xcdatamodeld"; sourceTree = "<group>"; };
+		5a4cce757a3a4dcf675a2aea /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; };
+		e203f0e45c33e7def14c6d77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; };
+		da749f6627fd75143df027ca /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "SwiftUI.framework"; path = "System/Library/Frameworks/SwiftUI.framework"; sourceTree = SDKROOT; };
+		fac6f51012bd731f24a7d451 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreData.framework"; path = "System/Library/Frameworks/CoreData.framework"; sourceTree = SDKROOT; };
+		18369d3f07d694a564be7e92 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "WebKit.framework"; path = "System/Library/Frameworks/WebKit.framework"; sourceTree = SDKROOT; };
+		2bbc89e9c0acefa4d3f5c3c1 /* OtterKeyboardTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = "OtterKeyboardTool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		bca99b6e0ed1dc8d97d3259c /* KeyboardExtension.appex */ = {isa = PBXFileReference; explicitFileType = wrapper.app-extension; path = "KeyboardExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		/* End PBXFileReference section */
+		/* Begin PBXFrameworksBuildPhase section */
+		2b9b7aaed1873ab8133bd095 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (
+			561524f66d616b9080886cb8,
+			f58738cee3be40116900fb58,
+			99448835db51cc31b2f1d82c,
+			95e8d85c10542775f3bfddfc,
+			a8bd0333d4435ecc212aed2d,
+		); runOnlyForDeploymentPostprocessing = 0; };
+		5370d2d07cd5a05a55385075 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (
+			9100838f4a77d16b149a4e6c,
+			5fb6c0bd6c544688b5c0513a,
+			545e6fa1477570e39dfcc18d,
+			3800455d11c26fe19e182db7,
+			4fff8bc2615b7eef2b998a03,
+		); runOnlyForDeploymentPostprocessing = 0; };
+		/* End PBXFrameworksBuildPhase section */
+		/* Begin PBXGroup section */
+		60da461c7ea0e77f6ca9c93a = {isa = PBXGroup; children = (
+			c0a34742de62fc117952ca91,
+			080f94158aa488873780bacf,
+			4f718c9b216f8d6339773318,
+			fabd061295a0708a1c0d2cc9,
+			15dab9acc8e0022bb7cdcf5b,
+		); sourceTree = "<group>"; };
+		c0a34742de62fc117952ca91 /* OtterKeyboardTool */ = {isa = PBXGroup; children = (
+			d11cf392063c5da118dfa2cc, /* OtterKeyboardToolApp.swift */
+			ad7bf3ecbeeb71b974444f1e, /* ContentView.swift */
+			6e74aa18c770f47d401b5c5a, /* Screens/ClipboardListView.swift */
+			4e2f68424f9575c5978d3dd5, /* Screens/PhraseSetsView.swift */
+			b9a463abb5fe95cc74b0515b, /* Screens/ScriptsView.swift */
+			bcce541f6957722d690a14e7, /* Screens/SettingsView.swift */
+			03e474c5ab95233f008010b1, /* Screens/InfoViews.swift */
+			f74d17890322b8b6deae49dc, /* Assets.xcassets */
+			61d83a2ca123a5480ba41ca3, /* en.lproj/Localizable.strings */
+			e978e57550191de9ff43e6cb, /* zh-Hans.lproj/Localizable.strings */
+			402878c8de3f83b8aaed4ba2, /* Info.plist */
+			657f48fe420f61d8dc239ac6, /* OtterKeyboardTool.entitlements */
+		); path = "OtterKeyboardTool"; sourceTree = "<group>"; };
+		080f94158aa488873780bacf /* KeyboardExtension */ = {isa = PBXGroup; children = (
+			35120f230fe48fd6777285db, /* KeyboardViewController.swift */
+			30ec7307320f90bfe25b43e2, /* KeyboardRootView.swift */
+			5e6a39c8333fe28acf579556, /* Panels.swift */
+			4caf38d3ea38c710b22f500a, /* ExplosionView.swift */
+			6a1754d4ac2b88fc04a61e46, /* en.lproj/Localizable.strings */
+			ac968b118abe8ee8c7bdf29b, /* zh-Hans.lproj/Localizable.strings */
+			53adb0d6af644d6c59fe7e86, /* Info.plist */
+			40b821591ac05ea629021ffb, /* KeyboardExtension.entitlements */
+		); path = "KeyboardExtension"; sourceTree = "<group>"; };
+		4f718c9b216f8d6339773318 /* Shared */ = {isa = PBXGroup; children = (
+			b88b52dfb56f532cee09a8f1, /* Persistence.swift */
+			a57f963d77b67d4e648a48a6, /* Models.swift */
+			d06288e3c54702e695caa413, /* Localized.swift */
+			9e36673888181bce1752775c, /* ScriptRunner.swift */
+			331e61be51e5890780c795d1, /* OtterKeyboardTool.xcdatamodeld */
+		); path = "Shared"; sourceTree = "<group>"; };
+		fabd061295a0708a1c0d2cc9 /* Products */ = {isa = PBXGroup; children = (
+			2bbc89e9c0acefa4d3f5c3c1,
+			bca99b6e0ed1dc8d97d3259c,
+		); name = Products; sourceTree = "<group>"; };
+		15dab9acc8e0022bb7cdcf5b /* Frameworks */ = {isa = PBXGroup; children = (
+			5a4cce757a3a4dcf675a2aea,
+			e203f0e45c33e7def14c6d77,
+			da749f6627fd75143df027ca,
+			fac6f51012bd731f24a7d451,
+			18369d3f07d694a564be7e92,
+		); name = Frameworks; sourceTree = "<group>"; };
+		/* End PBXGroup section */
+		/* Begin PBXNativeTarget section */
+		ac9189ed291daf3d9538121a /* OtterKeyboardTool */ = {isa = PBXNativeTarget; buildConfigurationList = f8cb7eac74637aa097fa9072; buildPhases = (
+			b141c636f1b8918e6b214ffb,
+			2b9b7aaed1873ab8133bd095,
+			6179c7e0335ff311e3e06ec5,
+			8f33189205f7bca53fb0faba,
+		); buildRules = (); dependencies = (2044e1926f14e786195beba4, ); name = OtterKeyboardTool; productName = OtterKeyboardTool; productReference = 2bbc89e9c0acefa4d3f5c3c1; productType = "com.apple.product-type.application"; };
+		c848384908aae4985486e164 /* KeyboardExtension */ = {isa = PBXNativeTarget; buildConfigurationList = 7eae2dbda031e1c521702d3c; buildPhases = (
+			91cde66776abe2164d32ecea,
+			5370d2d07cd5a05a55385075,
+			15bf890d10235341b667b1aa,
+		); buildRules = (); dependencies = (); name = KeyboardExtension; productName = KeyboardExtension; productReference = bca99b6e0ed1dc8d97d3259c; productType = "com.apple.product-type.app-extension"; };
+		/* End PBXNativeTarget section */
+		/* Begin PBXProject section */
+		16eeaf57bafc2a41cab7c99a /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					ac9189ed291daf3d9538121a = {CreatedOnToolsVersion = 15.2;};
+					c848384908aae4985486e164 = {CreatedOnToolsVersion = 15.2;};
+				};
+			};
+			buildConfigurationList = 7d5d7d0c7e0373d028b09e1b;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, zh-Hans, );
+			mainGroup = 60da461c7ea0e77f6ca9c93a;
+			productRefGroup = fabd061295a0708a1c0d2cc9;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ac9189ed291daf3d9538121a,
+				c848384908aae4985486e164,
+			);
+		};
+		/* End PBXProject section */
+		/* Begin PBXResourcesBuildPhase section */
+		6179c7e0335ff311e3e06ec5 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (
+			346ad8411d1684e968d6f990,
+			39615dded6b6271c52e57a15,
+			f09f5b041bd04a60bd13da63,
+		); runOnlyForDeploymentPostprocessing = 0; };
+		15bf890d10235341b667b1aa /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (
+			f5487ad2c89ef02ebcfa8ec6,
+			0d809518cb0ea7bac3c22dc3,
+		); runOnlyForDeploymentPostprocessing = 0; };
+		/* End PBXResourcesBuildPhase section */
+		/* Begin PBXSourcesBuildPhase section */
+		b141c636f1b8918e6b214ffb /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (
+			3eca3fb7671773fb0754d4e9,
+			fd56eadb7ced1e147ab9dfdd,
+			77993bd7a9f55d772f235a0a,
+			59d26a4fadb10a90d82efd59,
+			b86ab7aa733e6ccf12c62a91,
+			5afa64953b2a7a1e6ddb2700,
+			d5f995ff8f4918827ff61c9d,
+			06ed7bc1282455d30006b1fc,
+			d3f3e30eb2fcdb381999ddb7,
+			da333f98d369c28d387df43d,
+			bab7881526efbe5022608601,
+			219d27663d55a1023ad09f25,
+		); runOnlyForDeploymentPostprocessing = 0; };
+		91cde66776abe2164d32ecea /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (
+			4097213d85c795f818333e94,
+			93f7a0c52b990feebd4ffddb,
+			17c29b5c7fed3585e800e516,
+			bc67a634393e5cf7ee514eeb,
+			bcca98e58942bf4320065c58,
+			ce6e42ee5bb6c047b9a894de,
+			899580d40a0a92bff2a6f4ff,
+			40f0615f1868c9058029fa30,
+			98b49d29bc5d7b43747061b7,
+		); runOnlyForDeploymentPostprocessing = 0; };
+		/* End PBXSourcesBuildPhase section */
+		/* Begin PBXTargetDependency section */
+		2044e1926f14e786195beba4 /* PBXTargetDependency */ = {isa = PBXTargetDependency; target = c848384908aae4985486e164; targetProxy = eb2960c745af85e5de066070; };
+		/* End PBXTargetDependency section */
+		/* Begin PBXCopyFilesBuildPhase section */
+		8f33189205f7bca53fb0faba /* Embed App Extensions */ = {isa = PBXCopyFilesBuildPhase; buildActionMask = 2147483647; dstPath = ""; dstSubfolderSpec = 13; files = (
+			12d2996c95bba1a322e9a087,
+		); name = "Embed App Extensions"; runOnlyForDeploymentPostprocessing = 0; };
+		/* End PBXCopyFilesBuildPhase section */
+		/* Begin XCBuildConfiguration section */
+			443a613aa12b221b9aa89276 /* Debug */ = {
+				buildSettings = {
+					ALWAYS_SEARCH_USER_PATHS = NO;
+					CLANG_ANALYZER_NONNULL = YES;
+					CLANG_ENABLE_MODULES = YES;
+					CLANG_ENABLE_OBJC_ARC = YES;
+					CLANG_ENABLE_OBJC_WEAK = YES;
+					COPY_PHASE_STRIP = NO;
+					DEBUG_INFORMATION_FORMAT = dwarf;
+					ENABLE_STRICT_OBJC_MSGSEND = YES;
+					ENABLE_USER_SCRIPT_SANDBOXING = NO;
+					GCC_C_LANGUAGE_STANDARD = gnu17;
+					GCC_NO_COMMON_BLOCKS = YES;
+					IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+					MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+					MTL_FAST_MATH = YES;
+					ONLY_ACTIVE_ARCH = YES;
+					SDKROOT = iphoneos;
+					SWIFT_VERSION = 5.0;
+					TARGETED_DEVICE_FAMILY = "1,2";
+					CODE_SIGN_STYLE = Automatic;
+					GCC_OPTIMIZATION_LEVEL = 0;
+					SWIFT_OPTIMIZATION_LEVEL = -Onone;
+				};
+				name = Debug;
+			};
+			0f786f49de1d55adadc64688 /* Release */ = {
+				buildSettings = {
+					ALWAYS_SEARCH_USER_PATHS = NO;
+					CLANG_ANALYZER_NONNULL = YES;
+					CLANG_ENABLE_MODULES = YES;
+					CLANG_ENABLE_OBJC_ARC = YES;
+					CLANG_ENABLE_OBJC_WEAK = YES;
+					COPY_PHASE_STRIP = YES;
+					DEBUG_INFORMATION_FORMAT = dwarf-with-dsym;
+					ENABLE_STRICT_OBJC_MSGSEND = YES;
+					ENABLE_USER_SCRIPT_SANDBOXING = NO;
+					GCC_C_LANGUAGE_STANDARD = gnu17;
+					GCC_NO_COMMON_BLOCKS = YES;
+					IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+					MTL_ENABLE_DEBUG_INFO = NO;
+					MTL_FAST_MATH = YES;
+					ONLY_ACTIVE_ARCH = NO;
+					SDKROOT = iphoneos;
+					SWIFT_VERSION = 5.0;
+					TARGETED_DEVICE_FAMILY = "1,2";
+					CODE_SIGN_STYLE = Automatic;
+					GCC_OPTIMIZATION_LEVEL = s;
+					SWIFT_OPTIMIZATION_LEVEL = -O;
+					VALIDATE_PRODUCT = YES;
+				};
+				name = Release;
+			};
+			e33a8128ee9dcbb97a22708b /* Debug */ = {
+				buildSettings = {
+					ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+					CODE_SIGN_ENTITLEMENTS = "OtterKeyboardTool/OtterKeyboardTool.entitlements";
+					CURRENT_PROJECT_VERSION = 3;
+					ENABLE_BITCODE = NO;
+					GENERATE_INFOPLIST_FILE = NO;
+					INFOPLIST_FILE = "OtterKeyboardTool/Info.plist";
+					LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", );
+					MARKETING_VERSION = "1.2";
+					PRODUCT_BUNDLE_IDENTIFIER = com.cz.czk;
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					SWIFT_EMIT_LOC_STRINGS = YES;
+				};
+				name = Debug;
+			};
+			d0620c5a84deadd1200b049f /* Release */ = {
+				buildSettings = {
+					ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+					CODE_SIGN_ENTITLEMENTS = "OtterKeyboardTool/OtterKeyboardTool.entitlements";
+					CURRENT_PROJECT_VERSION = 3;
+					ENABLE_BITCODE = NO;
+					GENERATE_INFOPLIST_FILE = NO;
+					INFOPLIST_FILE = "OtterKeyboardTool/Info.plist";
+					LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", );
+					MARKETING_VERSION = "1.2";
+					PRODUCT_BUNDLE_IDENTIFIER = com.cz.czk;
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					SWIFT_EMIT_LOC_STRINGS = YES;
+				};
+				name = Release;
+			};
+			02c42598e014b235d14e3281 /* Debug */ = {
+				buildSettings = {
+					CODE_SIGN_ENTITLEMENTS = "KeyboardExtension/KeyboardExtension.entitlements";
+					CURRENT_PROJECT_VERSION = 3;
+					ENABLE_BITCODE = NO;
+					GENERATE_INFOPLIST_FILE = NO;
+					INFOPLIST_FILE = "KeyboardExtension/Info.plist";
+					LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", );
+					MARKETING_VERSION = "1.2";
+					PRODUCT_BUNDLE_IDENTIFIER = com.cz.czk.keyboard;
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					SKIP_INSTALL = YES;
+					SWIFT_EMIT_LOC_STRINGS = YES;
+				};
+				name = Debug;
+			};
+			53b2e09f643e1891873b7038 /* Release */ = {
+				buildSettings = {
+					CODE_SIGN_ENTITLEMENTS = "KeyboardExtension/KeyboardExtension.entitlements";
+					CURRENT_PROJECT_VERSION = 3;
+					ENABLE_BITCODE = NO;
+					GENERATE_INFOPLIST_FILE = NO;
+					INFOPLIST_FILE = "KeyboardExtension/Info.plist";
+					LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", );
+					MARKETING_VERSION = "1.2";
+					PRODUCT_BUNDLE_IDENTIFIER = com.cz.czk.keyboard;
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					SKIP_INSTALL = YES;
+					SWIFT_EMIT_LOC_STRINGS = YES;
+				};
+				name = Release;
+			};
+		/* End XCBuildConfiguration section */
+		/* Begin XCConfigurationList section */
+		7d5d7d0c7e0373d028b09e1b /* Build configuration list for PBXProject "OtterKeyboardTool" */ = {isa = XCConfigurationList; buildConfigurations = (
+			443a613aa12b221b9aa89276,
+			0f786f49de1d55adadc64688,
+		); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		f8cb7eac74637aa097fa9072 /* Build configuration list for PBXNativeTarget "OtterKeyboardTool" */ = {isa = XCConfigurationList; buildConfigurations = (
+			e33a8128ee9dcbb97a22708b,
+			d0620c5a84deadd1200b049f,
+		); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		7eae2dbda031e1c521702d3c /* Build configuration list for PBXNativeTarget "KeyboardExtension" */ = {isa = XCConfigurationList; buildConfigurations = (
+			02c42598e014b235d14e3281,
+			53b2e09f643e1891873b7038,
+		); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		/* End XCConfigurationList section */
+	};
+	rootObject = 16eeaf57bafc2a41cab7c99a; /* Project object */
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Clipboard" representedClassName="Clipboard" syncable="YES" codeGenerationType="manual">
+        <attribute name="content" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="createdAt" optional="YES" attributeType="Date"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Phrase" representedClassName="Phrase" syncable="YES" codeGenerationType="manual">
+        <attribute name="content" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="createdAt" optional="YES" attributeType="Date"/>
+        <relationship name="set" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PhraseSet" inverseName="phrases" inverseEntity="PhraseSet"/>
+    </entity>
+    <entity name="PhraseSet" representedClassName="PhraseSet" syncable="YES" codeGenerationType="manual">
+        <attribute name="createdAt" optional="YES" attributeType="Date"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="phrases" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Phrase" inverseName="set" inverseEntity="Phrase"/>
+    </entity>
+    <entity name="Script" representedClassName="Script" syncable="YES" codeGenerationType="manual">
+        <attribute name="code" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="createdAt" optional="YES" attributeType="Date"/>
+        <attribute name="isNetRequest" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isParams" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+</model>

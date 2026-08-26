@@ -17,3 +17,8 @@ xcuserdata/
 
 # Generated
 *.xcodeproj/xcuserdata/
+
+# SSH deploy key (do not commit)
+id_otter
+id_otter.pub
+

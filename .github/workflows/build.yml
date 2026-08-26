@@ -1,0 +1,64 @@
+name: Build (unsigned)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # Authoritative compile check: build app + keyboard extension for the
+  # simulator SDK without any code signing. Simulator builds never require
+  # signing and ignore App Group entitlements, so this verifies the whole
+  # project compiles (both targets).
+  build-simulator:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Build (unsigned, simulator SDK)
+        run: |
+          xcodebuild build \
+            -project OtterKeyboardTool.xcodeproj \
+            -target OtterKeyboardTool \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            DEVELOPMENT_TEAM="" \
+            PROVISIONING_PROFILE="" \
+            ENABLE_BITCODE=NO \
+            ONLY_ACTIVE_ARCH=NO
+
+  # Best-effort: also try an unsigned build against the device SDK. This may
+  # need CODE_SIGNING_ALLOWED=NO (set below) to skip signing; it is allowed to
+  # fail so it never blocks the pipeline. For a real, installable build you
+  # must provide a Development Team + provisioning profile (see README).
+  build-device-unsigned:
+    runs-on: macos-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build (unsigned, device SDK)
+        run: |
+          xcodebuild build \
+            -project OtterKeyboardTool.xcodeproj \
+            -target OtterKeyboardTool \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            DEVELOPMENT_TEAM="" \
+            PROVISIONING_PROFILE="" \
+            ENABLE_BITCODE=NO \
+            ONLY_ACTIVE_ARCH=NO

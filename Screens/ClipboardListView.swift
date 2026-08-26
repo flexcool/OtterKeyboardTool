@@ -1,5 +1,6 @@
 import SwiftUI
 import CoreData
+import UIKit
 
 struct ClipboardListView: View {
     @Environment(\.managedObjectContext) private var viewContext

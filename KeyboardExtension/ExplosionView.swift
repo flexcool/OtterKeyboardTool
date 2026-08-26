@@ -116,11 +116,12 @@ extension ExplosionTarget {
 /// Simple left-to-right wrapping layout.
 struct FlowLayout: Layout {
     let spacing: CGFloat
-    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+    init(spacing: CGFloat = 8) { self.spacing = spacing }
+    func sizeThatFits(in proposal: ProposedViewSize, for subviews: Subviews, with cache: inout ()) -> CGSize {
         let rows = layout(proposal.width ?? .infinity, subviews)
         return CGSize(width: proposal.width ?? .infinity, height: rows.height)
     }
-    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, with cache: inout ()) {
         let rows = layout(bounds.width, subviews)
         var y = bounds.minY
         for row in rows.rows {

@@ -40,7 +40,9 @@ final class KeyboardViewController: UIInputViewController {
         let root = KeyboardRootView().environmentObject(engine)
         hosting = UIHostingController(rootView: root)
         hosting.view.translatesAutoresizingMaskIntoConstraints = false
+        addChild(hosting)
         view.addSubview(hosting.view)
+        hosting.didMove(toParent: self)
         hosting.view.backgroundColor = .clear
 
         heightConstraint = view.heightAnchor.constraint(equalToConstant: defaultHeight)

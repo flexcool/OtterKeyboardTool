@@ -45,7 +45,7 @@ public final class ScriptRunner: NSObject {
     private var pending: [(code: String, arg: String?, completion: (Result<[String], Error>) -> Void)] = []
     private let lock = NSLock()
 
-    private override init() {
+    public override init() {
         let config = WKWebViewConfiguration()
         config.defaultWebpagePreferences.allowsContentJavaScript = true
         webView = WKWebView(frame: .zero, configuration: config)

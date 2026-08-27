@@ -1,4 +1,4 @@
-name: Build (unsigned)
+name: Build IPA (self-signable)
 
 on:
   push:
@@ -7,24 +7,18 @@ on:
     branches: [ "main" ]
 
 jobs:
-  # Authoritative compile check: build app + keyboard extension for the
-  # simulator SDK without any code signing. Simulator builds never require
-  # signing and ignore App Group entitlements, so this verifies the whole
-  # project compiles (both targets).
+  # Fast compile check: build app + keyboard extension for the simulator, unsigned.
   build-simulator:
     runs-on: macos-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
       - name: Show Xcode version
         run: xcodebuild -version
-
       - name: Build (unsigned, simulator SDK)
         run: |
           xcodebuild build \
             -project OtterKeyboardTool.xcodeproj \
-            -target OtterKeyboardTool \
+            -scheme OtterKeyboardTool \
             -configuration Release \
             -sdk iphonesimulator \
             -destination 'generic/platform=iOS Simulator' \
@@ -36,29 +30,82 @@ jobs:
             ENABLE_BITCODE=NO \
             ONLY_ACTIVE_ARCH=NO
 
-  # Best-effort: also try an unsigned build against the device SDK. This may
-  # need CODE_SIGNING_ALLOWED=NO (set below) to skip signing; it is allowed to
-  # fail so it never blocks the pipeline. For a real, installable build you
-  # must provide a Development Team + provisioning profile (see README).
-  build-device-unsigned:
+  # Produce an IPA. By default it is built UNSIGNED so it can be self-signed
+  # locally with AltStore / iOS App Signer / a free Apple ID.
+  # If the repo has signing Secrets configured, a signed IPA is exported instead.
+  build-ipa:
     runs-on: macos-latest
-    continue-on-error: true
+    needs: build-simulator
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Build (unsigned, device SDK)
+      - name: Decode signing cert + provisioning (only if secrets set)
+        if: ${{ secrets.BUILD_CERTIFICATE_BASE64 != '' }}
+        env:
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
         run: |
-          xcodebuild build \
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o cert.p12
+          echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode -o profile.mobileprovision
+          cp profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+          security create-keychain -p "" build.keychain
+          security import cert.p12 -k build.keychain -P "$P12_PASSWORD" -T /usr/bin/codesign
+          security list-keychains -d user -s build.keychain login.keychain
+
+      - name: Archive (unsigned by default)
+        env:
+          TEAM: ${{ secrets.APPLE_TEAM_ID != '' && secrets.APPLE_TEAM_ID || '' }}
+        run: |
+          if [ -n "$TEAM" ]; then
+            SIGN_FLAGS="DEVELOPMENT_TEAM=$TEAM CODE_SIGN_IDENTITY='Apple Development'"
+          else
+            SIGN_FLAGS="CODE_SIGN_IDENTITY='-' CODE_SIGNING_ALLOWED=NO DEVELOPMENT_TEAM='' PROVISIONING_PROFILE=''"
+          fi
+          xcodebuild archive \
             -project OtterKeyboardTool.xcodeproj \
-            -target OtterKeyboardTool \
+            -scheme OtterKeyboardTool \
             -configuration Release \
             -sdk iphoneos \
             -destination 'generic/platform=iOS' \
-            CODE_SIGN_IDENTITY="-" \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO \
-            DEVELOPMENT_TEAM="" \
-            PROVISIONING_PROFILE="" \
-            ENABLE_BITCODE=NO \
-            ONLY_ACTIVE_ARCH=NO
+            -archivePath build/OtterKeyboardTool.xcarchive \
+            $SIGN_FLAGS \
+            ENABLE_BITCODE=NO
+
+      - name: Export signed IPA (only if secrets set)
+        if: ${{ secrets.BUILD_CERTIFICATE_BASE64 != '' }}
+        env:
+          TEAM: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          cat > ExportOptions.plist <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>development</string>
+            <key>signingStyle</key><string>manual</string>
+            <key>signingCertificate</key><string>Apple Development</string>
+            <key>teamID</key><string>$TEAM</string>
+            <key>compileBitcode</key><false/>
+          </dict></plist>
+          EOF
+          xcodebuild -exportArchive \
+            -archivePath build/OtterKeyboardTool.xcarchive \
+            -exportOptionsPlist ExportOptions.plist \
+            -exportPath build/ipa
+
+      - name: Package unsigned IPA (default, self-signable)
+        if: ${{ secrets.BUILD_CERTIFICATE_BASE64 == '' }}
+        run: |
+          mkdir -p build/Payload
+          cp -R "build/OtterKeyboardTool.xcarchive/Products/Applications/OtterKeyboardTool.app" build/Payload/
+          cd build && zip -r -y OtterKeyboardTool.ipa Payload
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: OtterKeyboardTool-ipa
+          path: |
+            build/OtterKeyboardTool.ipa
+            build/ipa/*.ipa
+          if-no-files-found: warn

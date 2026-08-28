@@ -39,8 +39,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # secrets context is not allowed inside `if:`, so compute a boolean here.
+      - name: Check whether signing secrets are set
+        id: signcheck
+        run: |
+          if [ -n "${{ secrets.BUILD_CERTIFICATE_BASE64 }}" ] && [ -n "${{ secrets.P12_PASSWORD }}" ]; then
+            echo "has_cert=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_cert=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Decode signing cert + provisioning (only if secrets set)
-        if: ${{ secrets.BUILD_CERTIFICATE_BASE64 != '' }}
+        if: ${{ steps.signcheck.outputs.has_cert == 'true' }}
         env:
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
           P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
@@ -74,7 +84,7 @@ jobs:
             ENABLE_BITCODE=NO
 
       - name: Export signed IPA (only if secrets set)
-        if: ${{ secrets.BUILD_CERTIFICATE_BASE64 != '' }}
+        if: ${{ steps.signcheck.outputs.has_cert == 'true' }}
         env:
           TEAM: ${{ secrets.APPLE_TEAM_ID }}
         run: |
@@ -95,7 +105,7 @@ jobs:
             -exportPath build/ipa
 
       - name: Package unsigned IPA (default, self-signable)
-        if: ${{ secrets.BUILD_CERTIFICATE_BASE64 == '' }}
+        if: ${{ steps.signcheck.outputs.has_cert == 'false' }}
         run: |
           mkdir -p build/Payload
           cp -R "build/OtterKeyboardTool.xcarchive/Products/Applications/OtterKeyboardTool.app" build/Payload/

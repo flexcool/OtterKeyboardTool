@@ -15,6 +15,7 @@ def last_type(full):
 def cfg(u, name, pairs):
     out = []
     out.append('\t\t\t%s /* %s */ = {' % (u, name))
+    out.append('\t\t\t\tisa = XCBuildConfiguration;')
     out.append('\t\t\t\tbuildSettings = {')
     for k, v in pairs:
         out.append('\t\t\t\t\t%s = %s;' % (k, v))

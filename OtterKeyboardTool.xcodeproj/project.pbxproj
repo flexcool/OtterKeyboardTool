@@ -236,6 +236,7 @@
 		/* End PBXCopyFilesBuildPhase section */
 		/* Begin XCBuildConfiguration section */
 			443a613aa12b221b9aa89276 /* Debug */ = {
+				isa = XCBuildConfiguration;
 				buildSettings = {
 					ALWAYS_SEARCH_USER_PATHS = NO;
 					CLANG_ANALYZER_NONNULL = YES;
@@ -262,6 +263,7 @@
 				name = Debug;
 			};
 			0f786f49de1d55adadc64688 /* Release */ = {
+				isa = XCBuildConfiguration;
 				buildSettings = {
 					ALWAYS_SEARCH_USER_PATHS = NO;
 					CLANG_ANALYZER_NONNULL = YES;
@@ -289,6 +291,7 @@
 				name = Release;
 			};
 			e33a8128ee9dcbb97a22708b /* Debug */ = {
+				isa = XCBuildConfiguration;
 				buildSettings = {
 					ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 					CODE_SIGN_ENTITLEMENTS = "OtterKeyboardTool/OtterKeyboardTool.entitlements";
@@ -305,6 +308,7 @@
 				name = Debug;
 			};
 			d0620c5a84deadd1200b049f /* Release */ = {
+				isa = XCBuildConfiguration;
 				buildSettings = {
 					ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 					CODE_SIGN_ENTITLEMENTS = "OtterKeyboardTool/OtterKeyboardTool.entitlements";
@@ -321,6 +325,7 @@
 				name = Release;
 			};
 			02c42598e014b235d14e3281 /* Debug */ = {
+				isa = XCBuildConfiguration;
 				buildSettings = {
 					CODE_SIGN_ENTITLEMENTS = "KeyboardExtension/KeyboardExtension.entitlements";
 					CURRENT_PROJECT_VERSION = 3;
@@ -337,6 +342,7 @@
 				name = Debug;
 			};
 			53b2e09f643e1891873b7038 /* Release */ = {
+				isa = XCBuildConfiguration;
 				buildSettings = {
 					CODE_SIGN_ENTITLEMENTS = "KeyboardExtension/KeyboardExtension.entitlements";
 					CURRENT_PROJECT_VERSION = 3;
